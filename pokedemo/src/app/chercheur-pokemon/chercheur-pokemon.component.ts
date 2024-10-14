@@ -7,7 +7,8 @@ import {Pokemon} from '../pokemon';
   styleUrl: './chercheur-pokemon.component.css'
 })
 export class ChercheurPokemonComponent {
-  id: string = '';
+  name: string = '';
+  selectedPokemonName: string = "";
   pokemon_list: Pokemon[] = [
     new Pokemon("Pikachu"),
     new Pokemon("Alabama"),
@@ -15,4 +16,5 @@ export class ChercheurPokemonComponent {
     new Pokemon("Volgograd"),
     new Pokemon("Shanghai")
   ];
+
 }
