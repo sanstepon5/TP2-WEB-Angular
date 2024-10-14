@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Pokemon} from '../pokemon';
 
 @Component({
   selector: 'app-chercheur-pokemon',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class ChercheurPokemonComponent {
   id: string = '';
+  pokemon_list: Pokemon[] = [
+    new Pokemon("Pikachu"),
+    new Pokemon("Alabama"),
+    new Pokemon("Nord-Pas-De-Calais"),
+    new Pokemon("Volgograd"),
+    new Pokemon("Shanghai")
+  ];
 }
