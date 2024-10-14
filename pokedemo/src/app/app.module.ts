@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ChercheurPokemonComponent } from './chercheur-pokemon/chercheur-pokemon.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -11,6 +12,7 @@ import { ChercheurPokemonComponent } from './chercheur-pokemon/chercheur-pokemon
     ChercheurPokemonComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule
   ],
@@ -18,3 +20,4 @@ import { ChercheurPokemonComponent } from './chercheur-pokemon/chercheur-pokemon
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

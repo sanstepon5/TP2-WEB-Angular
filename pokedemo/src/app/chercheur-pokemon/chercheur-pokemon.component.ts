@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrl: './chercheur-pokemon.component.css'
 })
 export class ChercheurPokemonComponent {
-
+  id: string = '';
 }
