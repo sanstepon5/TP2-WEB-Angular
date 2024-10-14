@@ -7,7 +7,7 @@ import {Pokemon} from '../pokemon';
   styleUrl: './chercheur-pokemon.component.css'
 })
 export class ChercheurPokemonComponent {
-  name: string = '';
+  searchString: string = '';
   selectedPokemonName: string = "";
   pokemon_list: Pokemon[] = [
     new Pokemon("Pikachu"),

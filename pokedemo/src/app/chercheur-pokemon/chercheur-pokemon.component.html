@@ -1,6 +1,6 @@
-<input [(ngModel)]="name">
+<input [(ngModel)]="searchString">
 <br>
-<input readonly [(ngModel)]="name">
+<input readonly [(ngModel)]="searchString">
 <br>
 <select name="" id="" [(ngModel)]="selectedPokemonName">
   <option *ngFor="let pokemon of pokemon_list">{{pokemon.name}}</option>
