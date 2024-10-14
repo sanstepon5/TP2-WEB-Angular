@@ -17,4 +17,5 @@ export class ChercheurPokemonComponent {
     new Pokemon("Shanghai")
   ];
 
+  protected readonly navigator = navigator;
 }

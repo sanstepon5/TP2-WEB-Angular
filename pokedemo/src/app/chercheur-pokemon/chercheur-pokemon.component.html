@@ -6,4 +6,6 @@
   <option *ngFor="let pokemon of pokemon_list">{{pokemon.name}}</option>
 </select>
 <br>
-<p>{{selectedPokemonName}}</p>
+<ul>
+  <li *ngFor="let pokemon of pokemon_list | filterPokemonPipe:'name':selectedPokemonName">{{pokemon.name}}</li>
+</ul>
