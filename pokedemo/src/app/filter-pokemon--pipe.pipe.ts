@@ -12,7 +12,7 @@ export class FilterPokemonPipePipe implements PipeTransform {
     }
     else if (typeof pokes !== 'undefined' && typeof pokemon_name !== 'undefined') {
       return pokes.filter((poke) => {
-        return poke.name.toLowerCase().indexOf(searchString.toLowerCase()) !== -1;
+        return poke.id.toLowerCase().indexOf(searchString.toLowerCase()) !== -1;
       });
     } else {
       return [];

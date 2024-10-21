@@ -2,13 +2,15 @@
 <br>
 <input readonly [(ngModel)]="searchString">
 <br>
-<select name="" id="" [(ngModel)]="selectedPokemonName">
-  <option *ngFor="let pokemon of pokemon_list">{{pokemon.name}}</option>
+<select name="" id="" [(ngModel)]="selectedPokemonId">
+  <option *ngFor="let pokemon of pokemon_list" [value]="pokemon.id">{{pokemon.name}}</option>
 </select>
 <br>
 <ul>
-  <li *ngFor="let pokemon of pokemon_list | filterPokemonPipe:'name':selectedPokemonName">
-    l'id du pokemon :{{pokemon.id}}
+  <li *ngFor="let pokemon of pokemon_list | filterPokemonPipe:'name':selectedPokemonId">
+    l'id du pokemon : {{pokemon.id}}
   </li>
 </ul>
 <button (click)="go()">GO</button>
+
+
