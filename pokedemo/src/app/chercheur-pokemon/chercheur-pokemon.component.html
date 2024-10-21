@@ -9,3 +9,4 @@
 <ul>
   <li *ngFor="let pokemon of pokemon_list | filterPokemonPipe:'name':selectedPokemonName">{{pokemon.name}}</li>
 </ul>
+<button (click)="go()">GO</button>

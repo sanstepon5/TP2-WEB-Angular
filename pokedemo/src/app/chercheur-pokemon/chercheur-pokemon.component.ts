@@ -18,4 +18,7 @@ export class ChercheurPokemonComponent {
   ];
 
   protected readonly navigator = navigator;
+  go(){
+    console.log(this.selectedPokemonName)
+  }
 }
