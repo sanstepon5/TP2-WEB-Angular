@@ -7,6 +7,8 @@
 </select>
 <br>
 <ul>
-  <li *ngFor="let pokemon of pokemon_list | filterPokemonPipe:'name':selectedPokemonName">{{pokemon.name}}</li>
+  <li *ngFor="let pokemon of pokemon_list | filterPokemonPipe:'name':selectedPokemonName">
+    l'id du pokemon :{{pokemon.id}}
+  </li>
 </ul>
 <button (click)="go()">GO</button>

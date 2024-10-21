@@ -8,6 +8,7 @@ import {Pokemon} from '../pokemon';
 })
 export class ChercheurPokemonComponent {
   searchString: string = '';
+  selectedPokemonId: string = "";
   selectedPokemonName: string = "";
   pokemon_list: Pokemon[] = [
     new Pokemon("Pikachu"),
@@ -19,6 +20,6 @@ export class ChercheurPokemonComponent {
 
   protected readonly navigator = navigator;
   go(){
-    console.log(this.selectedPokemonName)
+    console.log(this.selectedPokemonId)
   }
 }
