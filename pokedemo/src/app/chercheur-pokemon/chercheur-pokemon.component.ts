@@ -20,6 +20,6 @@ export class ChercheurPokemonComponent {
 
   protected readonly navigator = navigator;
   go(){
-    console.log(this.selectedPokemonId)
+    console.log("ID du pokemon est : " + this.selectedPokemonId)
   }
 }

@@ -4,19 +4,12 @@ import {Pokemon} from './pokemon';
 @Pipe({
   name: 'filterPokemonPipe'
 })
-export class FilterPokemonPipePipe implements PipeTransform {
+export class FilterPokemonPipe implements PipeTransform {
 
-  transform(pokes: Pokemon[], pokemon_name?: string, searchString?: string): Pokemon[] {
-    if(typeof searchString == 'undefined'){
-      return pokes;
+  transform(pokemonList: Pokemon[], selectedPokemonId?: string): Pokemon | undefined {
+    if (!selectedPokemonId) {
+      return undefined;
     }
-    else if (typeof pokes !== 'undefined' && typeof pokemon_name !== 'undefined') {
-      return pokes.filter((poke) => {
-        return poke.id.toLowerCase().indexOf(searchString.toLowerCase()) !== -1;
-      });
-    } else {
-      return [];
-    }
+    return pokemonList.find(pokemon => pokemon.id === selectedPokemonId);
   }
-
 }

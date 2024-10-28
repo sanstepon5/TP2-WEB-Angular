@@ -6,11 +6,15 @@
   <option *ngFor="let pokemon of pokemon_list" [value]="pokemon.id">{{pokemon.name}}</option>
 </select>
 <br>
+<p>Liste de pokemons : </p>
 <ul>
-  <li *ngFor="let pokemon of pokemon_list | filterPokemonPipe:'name':selectedPokemonId">
-    l'id du pokemon : {{pokemon.id}}
+  <li *ngFor="let pokemon of pokemon_list">
+    {{pokemon.name}} a ID {{pokemon.id}}
   </li>
 </ul>
+<p *ngIf="pokemon_list | filterPokemonPipe:selectedPokemonId as selectedPokemon">
+  ID du pokemon selectionné: {{ selectedPokemon.id }}
+</p>
 <button (click)="go()">GO</button>
 
 

@@ -5,13 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ChercheurPokemonComponent } from './chercheur-pokemon/chercheur-pokemon.component';
 import { FormsModule } from '@angular/forms';
-import { FilterPokemonPipePipe } from './filter-pokemon--pipe.pipe';
+import { FilterPokemonPipe } from './filter-pokemon--pipe.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     ChercheurPokemonComponent,
-    FilterPokemonPipePipe
+    FilterPokemonPipe
   ],
   imports: [
     FormsModule,
