@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {Pokemon} from '../pokemon';
+import {PokeApiServiceService} from '../poke-api-service.service';
 
 @Component({
   selector: 'app-chercheur-pokemon',
@@ -7,20 +8,22 @@ import {Pokemon} from '../pokemon';
   styleUrl: './chercheur-pokemon.component.css',
 })
 export class ChercheurPokemonComponent {
-  searchString: string = '';
+  amountToRetrieve: number = 10;
   selectedPokemonId: string = "";
   selectedPokemonName: string = "";
   isSelectedPokemonToggleOn: boolean = false;
-  pokemon_list: Pokemon[] = [
-    new Pokemon("Pikachu"),
-    new Pokemon("Alabama"),
-    new Pokemon("Nord-Pas-De-Calais"),
-    new Pokemon("Volgograd"),
-    new Pokemon("Shanghai")
-  ];
+  pokemon_list: Pokemon[] = [];
+
+  constructor(private apiService: PokeApiServiceService) {}
 
   protected readonly navigator = navigator;
+
   go(){
-    console.log("ID du pokemon est : " + this.selectedPokemonId)
+    this.apiService.getPokemons(this.amountToRetrieve).subscribe(pokemons => {
+      Pokemon.resetID(); this.pokemon_list = [] // Pour ne pas re-recuperer les memes pokemons
+      for (const pokemon of pokemons.results) {
+        this.pokemon_list.push(new Pokemon(pokemon.name));
+      }
+    })
   }
 }

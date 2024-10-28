@@ -8,4 +8,8 @@ export class Pokemon {
     this.name = name;
     Pokemon.max_id++;
   }
+
+  static resetID(){
+    Pokemon.max_id = 0;
+  }
 }
