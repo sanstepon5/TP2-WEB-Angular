@@ -4,12 +4,13 @@ import {Pokemon} from '../pokemon';
 @Component({
   selector: 'app-chercheur-pokemon',
   templateUrl: './chercheur-pokemon.component.html',
-  styleUrl: './chercheur-pokemon.component.css'
+  styleUrl: './chercheur-pokemon.component.css',
 })
 export class ChercheurPokemonComponent {
   searchString: string = '';
   selectedPokemonId: string = "";
   selectedPokemonName: string = "";
+  isSelectedPokemonToggleOn: boolean = false;
   pokemon_list: Pokemon[] = [
     new Pokemon("Pikachu"),
     new Pokemon("Alabama"),

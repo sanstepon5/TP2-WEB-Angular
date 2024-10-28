@@ -12,9 +12,13 @@
     {{pokemon.name}} a ID {{pokemon.id}}
   </li>
 </ul>
-<p *ngIf="pokemon_list | filterPokemonPipe:selectedPokemonId as selectedPokemon">
+<br>
+<mat-slide-toggle [(ngModel)]="isSelectedPokemonToggleOn">Afficher le pokemon selectionné</mat-slide-toggle><br>
+
+<p *ngIf="isSelectedPokemonToggleOn && (pokemon_list | filterPokemonPipe:selectedPokemonId) as selectedPokemon">
   ID du pokemon selectionné: {{ selectedPokemon.id }}
 </p>
 <button (click)="go()">GO</button>
+
 
 

@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { ChercheurPokemonComponent } from './chercheur-pokemon/chercheur-pokemon.component';
 import { FormsModule } from '@angular/forms';
 import { FilterPokemonPipe } from './filter-pokemon--pipe.pipe';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -16,10 +18,14 @@ import { FilterPokemonPipe } from './filter-pokemon--pipe.pipe';
   imports: [
     FormsModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatSlideToggleModule
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
 
