@@ -10,12 +10,14 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {PokeApiServiceService} from './poke-api-service.service';
 import {HttpClientModule} from '@angular/common/http';
+import { PokemonDisplayComponent } from './pokemon-display/pokemon-display.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ChercheurPokemonComponent,
-    FilterPokemonPipe
+    FilterPokemonPipe,
+    PokemonDisplayComponent
   ],
   imports: [
     FormsModule,
@@ -26,7 +28,6 @@ import {HttpClientModule} from '@angular/common/http';
   ],
   providers: [
     provideAnimationsAsync(),
-    // PokeApiServiceService,
     importProvidersFrom(PokeApiServiceService)
 ],
   bootstrap: [AppComponent]
