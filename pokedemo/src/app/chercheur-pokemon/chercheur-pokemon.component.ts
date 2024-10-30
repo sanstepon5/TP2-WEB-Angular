@@ -21,8 +21,17 @@ export class ChercheurPokemonComponent {
   go(){
     this.apiService.getPokemons(this.amountToRetrieve).subscribe(pokemons => {
       Pokemon.resetID(); this.pokemon_list = [] // Pour ne pas re-recuperer les memes pokemons
-      for (const pokemon of pokemons.results) {
-        this.pokemon_list.push(new Pokemon(pokemon.name));
+      for (const poke of pokemons.results) {
+        this.apiService.getPokemonDetails(poke.url).subscribe(pokemon => {
+
+          let pokemonCreate: Pokemon = new  Pokemon(pokemon);
+          this.pokemon_list.push(pokemonCreate);
+          //pokemonCreate.displayInfo();
+
+        });
+
+
+
       }
     })
   }

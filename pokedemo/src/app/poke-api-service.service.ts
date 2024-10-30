@@ -13,7 +13,12 @@ export class PokeApiServiceService {
   }
 
   getPokemons(amount: number): Observable<any> {
-    return this.httpClient.request('GET', "https://pokeapi.co/api/v2/pokemon?limit="+amount+"&offset=0", {responseType: 'json'});
+    return this.httpClient.request('GET', "https://pokeapi.co/api/v2/pokemon?limit=" + amount + "&offset=0", {responseType: 'json'});
   }
+
+  getPokemonDetails(url: string): Observable<any> {
+    return this.httpClient.request('GET', url,{responseType : 'json'});
+  }
+
 
 }
