@@ -8,6 +8,9 @@
 <select [(ngModel)]="selectedPokemon">
   <option *ngFor="let pokemon of pokemon_list" [value]="pokemon">{{pokemon.name}}</option>
 </select>
+
+
+
 <p *ngIf="(pokemon_list | filterPokemonPipe:selectedPokemon.id) as selectedPokemon">
   ID du pokemon selectionné: {{ selectedPokemon.id }}
 </p>

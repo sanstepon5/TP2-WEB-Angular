@@ -13,7 +13,7 @@ export class Pokemon {
   moves : string[];
 
   constructor(data: any){
-    if (typeof(data) == "string"){
+    if (typeof(data) == "string"){// because typescript is shit can't make muliple constructors
       this.name = data;
       this.height = 0;
       this.sprite = "";
@@ -28,7 +28,7 @@ export class Pokemon {
     else {
       this.name = data.name;
       this.height = data.height;
-      this.sprite = "";
+      this.sprite = data.sprites.front_default;
       this.weight = data.weight;
       this.hp = data.stats[0].base_stat;
       this.damage = data.stats[1].base_stat;
@@ -49,6 +49,7 @@ export class Pokemon {
     console.log(`hp: ${this.hp}`);
     console.log(`damage: ${this.damage}`);
     console.log(`defense : ${this.defense }`);
+    console.log(`sprite : ${this.sprite}`);
   }
 
   static resetID(){

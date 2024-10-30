@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {Pokemon} from '../pokemon';
-import {PokeApiServiceService} from '../poke-api-service.service';
+import {PokeApiServiceService} from '../poke-api-service/poke-api-service.service';
 
 @Component({
   selector: 'app-chercheur-pokemon',
@@ -10,6 +10,7 @@ import {PokeApiServiceService} from '../poke-api-service.service';
 export class ChercheurPokemonComponent {
   amountToRetrieve: number = 10;
   selectedPokemon: Pokemon = new Pokemon("None");
+  selectedPokemonBool: boolean = false;
   isSelectedPokemonToggleOn: boolean = false;
   pokemon_list: Pokemon[] = [];
 
@@ -20,7 +21,6 @@ export class ChercheurPokemonComponent {
   ngOnInit() {
     this.fillPokemonList();
   }
-
   fillPokemonList(){
     this.apiService.getPokemons(this.amountToRetrieve).subscribe(pokemons => {
       Pokemon.resetID(); this.pokemon_list = [] // Pour ne pas re-recuperer les memes pokemons

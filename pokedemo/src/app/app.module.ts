@@ -5,12 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ChercheurPokemonComponent } from './chercheur-pokemon/chercheur-pokemon.component';
 import { FormsModule } from '@angular/forms';
-import { FilterPokemonPipe } from './filter-pokemon--pipe.pipe';
+import { FilterPokemonPipe } from './filter-pokemon-pipe/filter-pokemon--pipe.pipe';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import {PokeApiServiceService} from './poke-api-service.service';
+import {PokeApiServiceService} from './poke-api-service/poke-api-service.service';
 import {HttpClientModule} from '@angular/common/http';
 import { PokemonDisplayComponent } from './pokemon-display/pokemon-display.component';
+import {NgOptimizedImage} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { PokemonDisplayComponent } from './pokemon-display/pokemon-display.compo
     BrowserModule,
     AppRoutingModule,
     MatSlideToggleModule,
-    HttpClientModule
+    HttpClientModule,
+    NgOptimizedImage
   ],
   providers: [
     provideAnimationsAsync(),
