@@ -1,22 +1,22 @@
-<table>
+<table class="pokemon-table">
   <tr>
-    <td rowspan="2">
-      <img [src]="pokemon.sprite" alt="{{pokemon.name}}">
+    <td rowspan="2" class="sprite-cell">
+      <img [src]="pokemon.sprite" alt="{{pokemon.name}}" class="pokemon-sprite">
     </td>
-    <th>
+    <th class="pokemon-header">
       #{{pokemon.id}} {{pokemon.name}}
     </th>
   </tr>
   <tr>
-    <td>
+    <td class="description">
       {{pokemon.description}}
     </td>
   </tr>
   <tr>
-    <th colspan="2">First 5 moves:</th>
+    <th colspan="2" class="moves-header">First 5 moves:</th>
   </tr>
   <tr>
-    <td colspan="2">
+    <td colspan="2" class="moves-list">
       <ul>
         <li *ngFor="let move of pokemon.moves | slice:0:5">{{move}}</li>
       </ul>

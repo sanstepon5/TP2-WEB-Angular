@@ -1,4 +1,77 @@
-table{
-  margin-left: auto;
-  margin-right: auto;
+/* Main table styling */
+.pokemon-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #f9f9f9;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 20px 0;
+}
+
+/* Cell and header styling */
+.pokemon-table th,
+.pokemon-table td {
+  padding: 12px;
+  text-align: left;
+}
+
+/* Header for Pokémon info */
+.pokemon-header {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #3b4cca;
+  border-bottom: 2px solid #ddd;
+}
+
+/* Pokémon sprite styling */
+.sprite-cell {
+  width: 120px;
+  padding: 0;
+}
+
+.pokemon-sprite {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Description styling */
+.description {
+  font-style: italic;
+  color: #666;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Moves list header */
+.moves-header {
+  text-align: center;
+  background-color: #3b4cca;
+  color: white;
+  font-weight: bold;
+  border-top: 2px solid #ddd;
+}
+
+/* Moves list styling */
+.moves-list {
+  padding-left: 20px;
+}
+
+.moves-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.moves-list li {
+  padding: 5px 0;
+  color: #333;
+  font-weight: bold;
+}
+
+.moves-list li:nth-child(odd) {
+  background-color: #f0f0f8;
+  padding-left: 10px;
+  border-radius: 5px;
 }

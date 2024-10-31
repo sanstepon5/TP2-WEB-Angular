@@ -8,7 +8,7 @@ import {PokeApiServiceService} from '../poke-api-service/poke-api-service.servic
   styleUrl: './chercheur-pokemon.component.css',
 })
 export class ChercheurPokemonComponent {
-  amountToRetrieve: number = 10;
+  amountToRetrieve: number = 25;
   selectedPokemon: Pokemon = new Pokemon("None");
   isSelectedPokemonToggleOn: boolean = true;
   pokemon_list: Pokemon[] = [];
@@ -29,7 +29,12 @@ export class ChercheurPokemonComponent {
       temp = this.pokemon_list.filter(pokemon => pokemon.id === this.pokemonId);
       if (temp.length != 0){
         this.selectedPokemon = temp[0];
+        this.isSelectedPokemonToggleOn = false;
       }
+    }
+    else{
+      this.selectedPokemon = temp[0];
+      this.isSelectedPokemonToggleOn = false;
     }
   }
   fillPokemonList(){
