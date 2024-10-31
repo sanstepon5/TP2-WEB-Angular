@@ -9,8 +9,11 @@ import {PokeApiServiceService} from '../poke-api-service/poke-api-service.servic
 })
 export class ChercheurPokemonComponent {
   amountToRetrieve: number = 10;
+  pokemonName: string = "";
+  pokemonId: string = "";
   selectedPokemon: Pokemon = new Pokemon("None");
   selectedPokemonBool: boolean = false;
+
   isSelectedPokemonToggleOn: boolean = false;
   pokemon_list: Pokemon[] = [];
 
@@ -20,6 +23,15 @@ export class ChercheurPokemonComponent {
 
   ngOnInit() {
     this.fillPokemonList();
+  }
+  selectPokemon(){
+    let temp:Pokemon[] = this.pokemon_list.filter(pokemon => pokemon.name === this.pokemonName);
+    if(temp.length === 0){
+      temp = this.pokemon_list.filter(pokemon => pokemon.id === this.pokemonId);
+      if (temp.length != 0){
+        this.selectedPokemon = temp[0];
+      }
+    }
   }
   fillPokemonList(){
     this.apiService.getPokemons(this.amountToRetrieve).subscribe(pokemons => {
