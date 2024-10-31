@@ -2,7 +2,6 @@
 <br>
 <input [(ngModel)]="pokemonName">
 <br>
-<button (click)="fillPokemonList()">Retrieve pokemons</button>
 <button (click)="selectPokemon()"> GO </button>
 <br>
 <p>Choix de pokemon : </p>
@@ -15,7 +14,6 @@
 
 <p *ngIf="(pokemon_list | filterPokemonPipe:selectedPokemon.id) as selectedPokemon">
   ID du pokemon selectionné: {{ selectedPokemon.id }}
-  <app-pokemon-display [pokemon]="selectedPokemon"></app-pokemon-display>
 </p>
 <br>
 <mat-slide-toggle [(ngModel)]="isSelectedPokemonToggleOn">Afficher la liste des pokemons</mat-slide-toggle><br>
