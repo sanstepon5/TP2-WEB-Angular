@@ -1,77 +1,69 @@
-/* Main table styling */
-.pokemon-table {
-  width: 100%;
-  border-collapse: collapse;
-  background-color: #f9f9f9;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+body {
+  background-color: #e0e0e0; /* Light gray background color */
+  margin: 0; /* Remove default body margin */
+  font-family: Arial, sans-serif; /* Optional: Set a default font */
+}
+
+.pokemon-box {
+  display: flex;
+  align-items: flex-start; /* Align items at the start */
+  background-color: #ffffff; /* White background for the Pokémon box */
+  padding: 20px;
   border-radius: 8px;
-  overflow: hidden;
-  margin: 20px 0;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  border: 2px solid #3b4cca; /* Optional: add a border color */
 }
 
-/* Cell and header styling */
-.pokemon-table th,
-.pokemon-table td {
-  padding: 12px;
-  text-align: left;
-}
-
-/* Header for Pokémon info */
-.pokemon-header {
-  font-size: 1.5em;
-  font-weight: bold;
-  color: #3b4cca;
-  border-bottom: 2px solid #ddd;
-}
-
-/* Pokémon sprite styling */
-.sprite-cell {
-  width: 120px;
-  padding: 0;
-}
-
+/* Image styling to take 1/4 of the box */
 .pokemon-sprite {
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
+  width: 25%; /* Takes up 1/4 of the container */
+  height: auto; /* Maintain aspect ratio */
+  max-width: 100%; /* Prevent overflow */
+  image-rendering: pixelated; /* Preserve pixel art rendering */
+  filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.6));
+  border-radius: 8px; /* Optional: round image corners */
+  margin-right: 20px; /* Space between image and text */
+}
+
+/* Info section styling */
+.pokemon-info {
+  flex: 1; /* Takes the remaining space in the container */
+}
+
+/* Header styles for Pokémon name */
+.pokemon-info h2 {
+  font-size: 2em; /* Larger font size for the name */
+  color: #3b4cca; /* Color for the Pokémon name */
+  margin: 0;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  font-weight: bold; /* Bold font for emphasis */
 }
 
 /* Description styling */
-.description {
-  font-style: italic;
-  color: #666;
-  border-bottom: 1px solid #ddd;
-}
-
-/* Moves list header */
-.moves-header {
-  text-align: center;
-  background-color: #3b4cca;
-  color: white;
-  font-weight: bold;
-  border-top: 2px solid #ddd;
+.pokemon-info p {
+  color: #555; /* Darker gray for better readability */
+  margin-top: 5px;
+  font-size: 1.1em; /* Slightly larger font size for description */
+  line-height: 1.4; /* Increased line height for better spacing */
 }
 
 /* Moves list styling */
 .moves-list {
-  padding-left: 20px;
-}
-
-.moves-list ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  list-style-type: none; /* Remove default list styles */
+  padding: 0; /* Remove padding */
+  margin-top: 10px; /* Space above the moves list */
 }
 
 .moves-list li {
-  padding: 5px 0;
+  padding: 5px 0; /* Space between moves */
   color: #333;
-  font-weight: bold;
+  font-weight: bold; /* Bold font for moves */
+  font-size: 1.1em; /* Slightly larger font size for moves */
 }
 
+/* Optional: background for odd items */
 .moves-list li:nth-child(odd) {
-  background-color: #f0f0f8;
-  padding-left: 10px;
-  border-radius: 5px;
+  background-color: #f0f0f8; /* Light background for odd moves */
+  padding-left: 10px; /* Add padding */
+  border-radius: 5px; /* Optional: rounded corners for list items */
 }
