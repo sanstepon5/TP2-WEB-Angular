@@ -16,18 +16,9 @@
 </p>
 <br>
 <mat-slide-toggle [(ngModel)]="isSelectedPokemonToggleOn">Afficher la liste des pokemons</mat-slide-toggle><br>
-<p>Liste de pokemons : </p>
-<ul *ngIf="isSelectedPokemonToggleOn">
-  <li *ngFor="let pokemon of pokemon_list">
-    {{pokemon.name}} a ID {{pokemon.id}}
-  </li>
-</ul>
 <br>
-
-<app-pokemon-display *ngFor="let pokemon of pokemon_list" [pokemon]="pokemon"></app-pokemon-display>
-
-
-
-
+<div *ngIf="isSelectedPokemonToggleOn">
+  <app-pokemon-display *ngFor="let pokemon of pokemon_list" [pokemon]="pokemon"></app-pokemon-display>
+</div>
 
 

@@ -10,8 +10,7 @@ import {PokeApiServiceService} from '../poke-api-service/poke-api-service.servic
 export class ChercheurPokemonComponent {
   amountToRetrieve: number = 10;
   selectedPokemon: Pokemon = new Pokemon("None");
-  selectedPokemonBool: boolean = false;
-  isSelectedPokemonToggleOn: boolean = false;
+  isSelectedPokemonToggleOn: boolean = true;
   pokemon_list: Pokemon[] = [];
 
   constructor(private apiService: PokeApiServiceService) {}
@@ -21,16 +20,24 @@ export class ChercheurPokemonComponent {
   ngOnInit() {
     this.fillPokemonList();
   }
+
   fillPokemonList(){
     this.apiService.getPokemons(this.amountToRetrieve).subscribe(pokemons => {
       Pokemon.resetID(); this.pokemon_list = [] // Pour ne pas re-recuperer les memes pokemons
-      for (const poke of pokemons.results) {
+      for (let poke of pokemons.results) {
         this.apiService.getPokemonDetails(poke.url).subscribe(pokemon => {
           let pokemonCreate: Pokemon = new  Pokemon(pokemon);
+          this.setPokemonDesc(pokemonCreate)
           this.pokemon_list.push(pokemonCreate);
-          //pokemonCreate.displayInfo();
         });
       }
     })
+  }
+
+
+  setPokemonDesc(pokemon: Pokemon) {
+      this.apiService.getPokemonSpecies(pokemon.id).subscribe(species => {
+        pokemon.description = species.flavor_text_entries[0].flavor_text;
+      })
   }
 }
