@@ -12,6 +12,8 @@ export class ChercheurPokemonComponent {
   selectedPokemon: Pokemon = new Pokemon("None");
   isSelectedPokemonToggleOn: boolean = true;
   pokemon_list: Pokemon[] = [];
+  pokemonId = "";
+  pokemonName = "";
 
   constructor(private apiService: PokeApiServiceService) {}
 
