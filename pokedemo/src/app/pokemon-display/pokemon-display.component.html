@@ -12,4 +12,14 @@
       {{pokemon.description}}
     </td>
   </tr>
+  <tr>
+    <th colspan="2">First 5 moves:</th>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <ul>
+        <li *ngFor="let move of pokemon.moves | slice:0:5">{{move}}</li>
+      </ul>
+    </td>
+  </tr>
 </table>
