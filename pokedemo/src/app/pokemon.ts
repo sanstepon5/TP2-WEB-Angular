@@ -11,6 +11,7 @@ export class Pokemon {
   damage : number;
   defense : number;
   moves : string[];
+  description: string;
 
   constructor(data: any){
     if (typeof(data) == "string"){// because typescript is shit can't make muliple constructors
@@ -37,7 +38,7 @@ export class Pokemon {
       this.moves = data.moves.map((moveStructure: { move: { name: any; }; }) => moveStructure.move.name);
       this.id = data.id;
     }
-
+    this.description = "";
 
 
   }

@@ -29,4 +29,9 @@ export class PokeApiServiceService {
     return this.httpClient.request('GET', "https://pokeapi.co/api/v2/pokemon/"+name.trim().toLowerCase(), {responseType: 'json'});
   }
 
+  // Contains, among others, the description
+  getPokemonSpecies(id: string): Observable<any> {
+    return this.httpClient.request('GET', "https://pokeapi.co/api/v2/pokemon-species/"+id, {responseType: 'json'});
+  }
+
 }

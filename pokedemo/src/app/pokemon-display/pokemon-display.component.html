@@ -1,11 +1,15 @@
 <table>
-  <td>
-    <tr>
-      <img [src]="pokemon.sprite" alt="{{ pokemon.name }}" />
-    </tr>
-  </td>
-  <td>
-    <tr>{{pokemon.name}}</tr>
-    <tr>{{pokemon.id}}</tr>
-  </td>
+  <tr>
+    <td rowspan="2">
+      <img [src]="pokemon.sprite" alt="{{pokemon.name}}">
+    </td>
+    <th>
+      #{{pokemon.id}} {{pokemon.name}}
+    </th>
+  </tr>
+  <tr>
+    <td>
+      {{pokemon.description}}
+    </td>
+  </tr>
 </table>
