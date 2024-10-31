@@ -1,23 +1,20 @@
-<input type="number" [(ngModel)]="pokemonId">
-<br>
-<input [(ngModel)]="pokemonName">
-<br>
-<button (click)="selectPokemon()"> GO </button>
-<br>
-<p>Choix de pokemon : </p>
+<p>Get Pokemon by ID</p><input type="number" [(ngModel)]="pokemonId">
+<p>Get Pokemon by Name</p><input [(ngModel)]="pokemonName">
+<br><br>
+<button (click)="selectPokemon()">Add Pokemon to list</button>
+<br><br>
+<p>Afficher le pokemon : </p>
 <select [(ngModel)]="selectedPokemon">
-  <option *ngFor="let pokemon of pokemon_list" [value]="pokemon">{{pokemon.name}}</option>
+  <option *ngFor="let pokemon of pokemon_list" [ngValue]="pokemon" >{{pokemon.name}}</option>
 </select>
+<br>
+<mat-slide-toggle [(ngModel)]="isSelectedPokemonToggleOn">
+  Afficher le pokemon selectionné ou la liste entiere
+</mat-slide-toggle><br>
+<br>
 <div *ngIf="!isSelectedPokemonToggleOn">
-<app-pokemon-display [pokemon]="selectedPokemon"></app-pokemon-display>
+  <app-pokemon-display [pokemon]="selectedPokemon"></app-pokemon-display>
 </div>
-
-<p *ngIf="(pokemon_list | filterPokemonPipe:selectedPokemon.id) as selectedPokemon">
-  ID du pokemon selectionné: {{ selectedPokemon.id }}
-</p>
-<br>
-<mat-slide-toggle [(ngModel)]="isSelectedPokemonToggleOn">Afficher la liste des pokemons</mat-slide-toggle><br>
-<br>
 <div *ngIf="isSelectedPokemonToggleOn">
   <app-pokemon-display *ngFor="let pokemon of pokemon_list" [pokemon]="pokemon"></app-pokemon-display>
 </div>
