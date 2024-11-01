@@ -1,8 +1,8 @@
+
 <p>Get Pokemon by ID</p><input type="number" [(ngModel)]="pokemonId">
 <p>Get Pokemon by Name</p><input [(ngModel)]="pokemonName">
 <br><br>
-<button (click)="selectPokemon()">Add Pokemon to list</button>
-<br><br>
+<button (click)="selectPokemon()">GO</button>
 <p>Afficher le pokemon : </p>
 <select [(ngModel)]="selectedPokemon">
   <option *ngFor="let pokemon of pokemon_list" [ngValue]="pokemon" >{{pokemon.name}}</option>

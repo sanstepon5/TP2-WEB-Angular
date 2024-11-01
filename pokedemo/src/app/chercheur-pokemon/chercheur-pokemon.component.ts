@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Renderer2 } from '@angular/core';
 import {Pokemon} from '../pokemon';
 import {PokeApiServiceService} from '../poke-api-service/poke-api-service.service';
+
 
 @Component({
   selector: 'app-chercheur-pokemon',
@@ -13,9 +14,10 @@ export class ChercheurPokemonComponent {
   isSelectedPokemonToggleOn: boolean = true;
   pokemon_list: Pokemon[] = [];
   pokemonId = "";
-  pokemonName = "";
+  pokemonName: string = "";
 
-  constructor(private apiService: PokeApiServiceService) {}
+  constructor(private apiService: PokeApiServiceService, private renderer: Renderer2) {
+  }
 
   protected readonly navigator = navigator;
 
@@ -23,26 +25,27 @@ export class ChercheurPokemonComponent {
     this.fillPokemonList();
   }
 
-  selectPokemon(){
-    let temp:Pokemon[] = this.pokemon_list.filter(pokemon => pokemon.name === this.pokemonName);
-    if(temp.length === 0){
+  selectPokemon() {
+    let temp: Pokemon[] = this.pokemon_list.filter(pokemon => pokemon.name === this.pokemonName);
+    if (temp.length === 0) {
       temp = this.pokemon_list.filter(pokemon => pokemon.id === this.pokemonId);
-      if (temp.length != 0){
+      if (temp.length != 0) {
         this.selectedPokemon = temp[0];
         this.isSelectedPokemonToggleOn = false;
       }
-    }
-    else{
+    } else {
       this.selectedPokemon = temp[0];
       this.isSelectedPokemonToggleOn = false;
     }
   }
-  fillPokemonList(){
+
+  fillPokemonList() {
     this.apiService.getPokemons(this.amountToRetrieve).subscribe(pokemons => {
-      Pokemon.resetID(); this.pokemon_list = [] // Pour ne pas re-recuperer les memes pokemons
+      Pokemon.resetID();
+      this.pokemon_list = [] // Pour ne pas re-recuperer les memes pokemons
       for (let poke of pokemons.results) {
         this.apiService.getPokemonDetails(poke.url).subscribe(pokemon => {
-          let pokemonCreate: Pokemon = new  Pokemon(pokemon);
+          let pokemonCreate: Pokemon = new Pokemon(pokemon);
           this.setPokemonDesc(pokemonCreate)
           this.pokemon_list.push(pokemonCreate);
         });
@@ -52,8 +55,8 @@ export class ChercheurPokemonComponent {
 
 
   setPokemonDesc(pokemon: Pokemon) {
-      this.apiService.getPokemonSpecies(pokemon.id).subscribe(species => {
-        pokemon.description = species.flavor_text_entries[0].flavor_text;
-      })
+    this.apiService.getPokemonSpecies(pokemon.id).subscribe(species => {
+      pokemon.description = species.flavor_text_entries[0].flavor_text;
+    })
   }
 }

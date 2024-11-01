@@ -1,69 +1,138 @@
-body {
-  background-color: #e0e0e0; /* Light gray background color */
-  margin: 0; /* Remove default body margin */
-  font-family: Arial, sans-serif; /* Optional: Set a default font */
+/* Light theme colors */
+:root {
+  --background-color: #e0e0e0;
+  --pokemon-box-background: #ffffff;
+  --text-color: #333333;
+  --highlight-color: #3b4cca;
+  --stat-background: #f7f7f9;
+  --move-background: #d9edf7;
+  --border-color: #c0c0c0;
+  --hp-color: #ff6f61; /* Coral */
+  --damage-color: #f0ad4e; /* Orange */
+  --defense-color: #5bc0de; /* Light Blue */
+  --weight-color: #5cb85c; /* Green */
+  --height-color: #0275d8; /* Blue */
 }
 
+/* Global styles using variables */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Pokémon display container */
 .pokemon-box {
   display: flex;
-  align-items: flex-start; /* Align items at the start */
-  background-color: #ffffff; /* White background for the Pokémon box */
+  align-items: flex-start;
+  background-color: var(--pokemon-box-background);
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-  border: 2px solid #3b4cca; /* Optional: add a border color */
+  border: 2px solid var(--highlight-color);
+  margin: 20px;
 }
 
-/* Image styling to take 1/4 of the box */
+/* Pokémon sprite styling */
 .pokemon-sprite {
-  width: 25%; /* Takes up 1/4 of the container */
-  height: auto; /* Maintain aspect ratio */
-  max-width: 100%; /* Prevent overflow */
-  image-rendering: pixelated; /* Preserve pixel art rendering */
+  width: 25%;
+  height: auto;
+  image-rendering: pixelated;
   filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.6));
-  border-radius: 8px; /* Optional: round image corners */
-  margin-right: 20px; /* Space between image and text */
+  border-radius: 8px;
+  margin-right: 20px;
 }
 
-/* Info section styling */
+/* Pokémon info text styling */
 .pokemon-info {
-  flex: 1; /* Takes the remaining space in the container */
+  flex: 1;
 }
 
-/* Header styles for Pokémon name */
 .pokemon-info h2 {
-  font-size: 2em; /* Larger font size for the name */
-  color: #3b4cca; /* Color for the Pokémon name */
+  font-size: 2em;
+  color: var(--highlight-color);
   margin: 0;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-  font-weight: bold; /* Bold font for emphasis */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
 }
 
-/* Description styling */
 .pokemon-info p {
-  color: #555; /* Darker gray for better readability */
+  color: var(--text-color);
   margin-top: 5px;
-  font-size: 1.1em; /* Slightly larger font size for description */
-  line-height: 1.4; /* Increased line height for better spacing */
+  font-size: 1.1em;
+  line-height: 1.4;
+}
+
+/* Stats icons and labels */
+.pokemon-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  background-color: var(--stat-background);
+  padding: 5px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  transition: background-color 0.3s ease;
+}
+
+.stat:hover {
+  background-color: rgba(0, 0, 0, 0.05); /* Subtle hover effect */
+}
+
+.icon-heart {
+  color: var(--hp-color);
+}
+
+.icon-sword {
+  color: var(--damage-color);
+}
+
+.icon-shield {
+  color: var(--defense-color);
+}
+
+.icon-weight {
+  color: var(--weight-color);
+}
+
+.icon-height {
+  color: var(--height-color);
+}
+
+.label {
+  font-weight: bold;
+  color: var(--text-color);
+  margin-right: 5px;
 }
 
 /* Moves list styling */
 .moves-list {
-  list-style-type: none; /* Remove default list styles */
-  padding: 0; /* Remove padding */
-  margin-top: 10px; /* Space above the moves list */
+  list-style-type: none;
+  padding: 0;
+  margin-top: 10px;
 }
 
 .moves-list li {
-  padding: 5px 0; /* Space between moves */
-  color: #333;
-  font-weight: bold; /* Bold font for moves */
-  font-size: 1.1em; /* Slightly larger font size for moves */
+  padding: 5px 10px;
+  color: var(--text-color);
+  font-weight: bold;
+  font-size: 1.1em;
+  background-color: var(--move-background);
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
-/* Optional: background for odd items */
+.moves-list li:hover {
+  background-color: rgba(0, 0, 0, 0.1); /* Subtle hover effect */
+}
+
 .moves-list li:nth-child(odd) {
-  background-color: #f0f0f8; /* Light background for odd moves */
-  padding-left: 10px; /* Add padding */
-  border-radius: 5px; /* Optional: rounded corners for list items */
+  background-color: rgba(215, 237, 247, 0.5); /* Slightly transparent for odd items */
 }

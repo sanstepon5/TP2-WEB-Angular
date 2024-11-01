@@ -1,12 +1,37 @@
 <div class="pokemon-box">
-  <img [src]="pokemon.sprite" alt="{{pokemon.name}}" class="pokemon-sprite">
+  <img class="pokemon-sprite" [src]="pokemon.sprite" alt="{{pokemon.name}}">
+
   <div class="pokemon-info">
     <h2>#{{pokemon.id}} {{pokemon.name}}</h2>
     <p>{{pokemon.description}}</p>
 
-    <h3>First 5 moves:</h3>
+    <div class="pokemon-stats">
+      <div class="stat">
+        <span class="icon-heart">❤️</span>
+        <span class="label">HP:</span> {{pokemon.hp}}
+      </div>
+      <div class="stat">
+        <span class="icon-sword">🗡️</span>
+        <span class="label">Damage:</span> {{pokemon.damage}}
+      </div>
+      <div class="stat">
+        <span class="icon-shield">🛡️</span>
+        <span class="label">Defense:</span> {{pokemon.defense}}
+      </div>
+      <div class="stat">
+        <span class="icon-weight">⚖️</span>
+        <span class="label">Weight:</span> {{pokemon.weight}} kg
+      </div>
+      <div class="stat">
+        <span class="icon-height">📏</span>
+        <span class="label">Height:</span> {{pokemon.height}} m
+      </div>
+    </div>
+
+    <h3>First 5 Moves:</h3>
     <ul class="moves-list">
       <li *ngFor="let move of pokemon.moves | slice:0:5">{{move}}</li>
     </ul>
   </div>
 </div>
+
