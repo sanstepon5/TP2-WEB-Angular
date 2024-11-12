@@ -1,4 +1,4 @@
-import { Component, Renderer2 } from '@angular/core';
+import { Component } from '@angular/core';
 import {Pokemon} from '../pokemon';
 import {PokeApiServiceService} from '../poke-api-service/poke-api-service.service';
 
@@ -16,8 +16,7 @@ export class ChercheurPokemonComponent {
   pokemonId = "";
   pokemonName: string = "";
 
-  constructor(private apiService: PokeApiServiceService, private renderer: Renderer2) {
-  }
+  constructor(private apiService: PokeApiServiceService) {}
 
   protected readonly navigator = navigator;
 
